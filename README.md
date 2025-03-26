@@ -18,3 +18,6 @@ This app displays a risk ranking tool in the side bar of changes.
     ├── config                        
     │   └── iparams.json
     └── manifest.json                
+
+### Installation
+To use the application, "Risk Ranking Tool.zip" must be uploaded onto the FreshService developer portal as a private app (only available to your company).
