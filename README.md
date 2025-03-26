@@ -1,4 +1,4 @@
-## Your First App
+## Risk Ranking Tool App
 
 This app displays a risk ranking tool in the side bar of changes.
 
@@ -6,7 +6,8 @@ This app displays a risk ranking tool in the side bar of changes.
     .
     ├── README.md                     
     ├── app                           
-    │   ├── index.html                
+    │   ├── index.html    
+    │   ├── mini-viewer.html  
     │   ├── scripts                   
     │   │   └── app.js
     │   └── styles                    
