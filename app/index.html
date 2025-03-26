@@ -1,0 +1,245 @@
+<html lang="en">
+<head>
+  <!-- Include the Freshservice App SDK -->
+  <script src="{{{appclient}}}"></script>
+  <!-- Link to the custom stylesheet -->
+  <link rel="stylesheet" type="text/css" href="styles/style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Risk Ranking Tool</title>
+</head>
+
+<body>
+  <!-- Include the custom JavaScript file -->
+  <script src="scripts/app.js"></script>
+
+  <!-- Main application container -->
+  <section class="app-body">
+    <!-- Content container for the tool -->
+    <section class="app-content">
+      <!-- Hidden title for accessibility -->
+      <h1 id="title" class="hidden">Risk Ranking Tool</h1>
+
+      <!-- Table containing the risk ranking questions -->
+      <table id="ranking-tool-table">
+        <!-- Question 1 -->
+        <tr>
+          <td class="question">
+            <label for="q1">Have you undertaken this change previously?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q1" id="q1-yes" value="yes" data-score-yes="-10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q1-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q1" id="q1-no" value="no" data-score-no="10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q1-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+
+        <!-- Question 2 -->
+        <tr>
+          <td class="question">
+            <label for="q2">Have similar changes been successful in the past?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q2" id="q2-yes" value="yes" data-score-yes="-10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q2-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q2" id="q2-no" value="no" data-score-no="10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q2-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+
+        <!-- Question 3 -->
+        <tr>
+          <td class="question">
+            <label for="q3">Is there a back-out plan?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q3" id="q3-yes" value="yes" data-score-yes="-10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q3-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q3" id="q3-no" value="no" data-score-no="10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q3-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+      
+        <!-- Question 4 -->
+        <tr>
+          <td class="question">
+            <label for="q4">Is there a plan for validating the success of the change?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q4" id="q4-yes" value="yes" data-score-yes="-10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q4-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q4" id="q4-no" value="no" data-score-no="10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q4-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+      
+        <!-- Question 5 -->
+        <tr>
+          <td class="question">
+            <label for="q5">Is there or will there be a clear documented implementation plan?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q5" id="q5-yes" value="yes" data-score-yes="-10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q5-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q5" id="q5-no" value="no" data-score-no="10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q5-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+      
+        <!-- Question 6 -->
+        <tr>
+          <td class="question">
+            <label for="q6">Is the change being performed post business hours?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q6" id="q6-yes" value="yes" data-score-yes="-5" onchange="calculateScore()" />
+            <label class="custom-radio" for="q6-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q6" id="q6-no" value="no" data-score-no="5" onchange="calculateScore()" />
+            <label class="custom-radio" for="q6-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+      
+        <!-- Question 7 -->
+        <tr>
+          <td class="question">
+            <label for="q7">Are the resources required to implement the change experienced with making this change?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q7" id="q7-yes" value="yes" data-score-yes="-10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q7-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q7" id="q7-no" value="no" data-score-no="10" onchange="calculateScore()" />
+            <label class="custom-radio" for="q7-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+      
+        <!-- Question 8 -->
+        <tr>
+          <td class="question">
+            <label for="q8">If the change fails, does it have a high impact on the business?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q8" id="q8-yes" value="yes" data-score-yes="45" onchange="calculateScore()" />
+            <label class="custom-radio" for="q8-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q8" id="q8-no" value="no" data-score-no="-45" onchange="calculateScore()" />
+            <label class="custom-radio" for="q8-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+      
+        <!-- Question 9 -->
+        <tr>
+          <td class="question">
+            <label for="q9">Does the change impact more than 20% of employees?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q9" id="q9-yes" value="yes" data-score-yes="45" onchange="calculateScore()" />
+            <label class="custom-radio" for="q9-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q9" id="q9-no" value="no" data-score-no="-45" onchange="calculateScore()" />
+            <label class="custom-radio" for="q9-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+      
+        <!-- Question 10 -->
+        <tr>
+          <td class="question">
+            <label for="q10">Will it severely impact the core functionality of the system(s)?</label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q10" id="q10-yes" value="yes" data-score-yes="45" onchange="calculateScore()" />
+            <label class="custom-radio" for="q10-yes">
+              <span class="radio-label">Yes</span>
+            </label>
+          </td>
+          <td class="choices">
+            <input type="radio" name="q10" id="q10-no" value="no" data-score-no="-45" onchange="calculateScore()" />
+            <label class="custom-radio" for="q10-no">
+              <span class="radio-label">No</span>
+            </label>
+          </td>
+        </tr>
+      </table>
+
+      <!-- Score display and gauge visualization -->
+      <div id="score-display" class="score-display">
+        <!-- Gauge container -->
+        <div class="gauge">
+          <div class="gauge-background"></div>
+          <div class="gauge-needle"></div>
+          <div class="gauge-bottom"></div>
+          <div class="gauge-label">
+            <span id="gauge-value"></span>
+          </div>
+        </div>
+
+        <!-- Risk level display -->
+        <p class="risk-level" id="risk-level-container">
+          <strong>Ranking: <span id="risk-level"></span></strong>
+        </p>
+
+        <!-- Save button -->
+        <button class="save-button" id="save-button" onclick="saveAnswers()">
+          <strong>Save and close</strong>
+        </button>
+
+        <!-- Save message display -->
+        <p class="save-message" id="save-message"></p>
+
+      </div>
+    </section>
+  </section>
+</body>
+</html>

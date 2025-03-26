@@ -1,0 +1,22 @@
+{
+  "platform-version": "2.3",
+  "product": {
+    "freshservice": {
+      "location": {
+        "change_sidebar": {
+          "url": "mini-viewer.html",
+          "icon": "styles/images/icon.svg"
+        }
+      }
+    }
+  },
+  "templates": {
+    "modal": {
+      "url": "index.html"
+    }
+  },
+  "engines": {
+    "node": "18.20.5",
+    "fdk": "9.2.1"
+  }
+}

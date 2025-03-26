@@ -1,0 +1,22 @@
+{
+  "name": "risk-ranking-tool",
+  "version": "1.0.0",
+  "description": "Risk Ranking Tool for Freshservice to evaluate change risks.",
+  "main": "index.js",
+  "scripts": {
+    "start": "fdk run",
+    "build": "fdk pack",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "author": "Madison Brickner",
+  "license": "MIT",
+  "dependencies": {
+    "freshworks-javascript-sdk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0"
+  },
+  "engines": {
+      "node": ">=18.0.0"
+    }
+}
